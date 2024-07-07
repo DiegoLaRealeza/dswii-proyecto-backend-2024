@@ -18,19 +18,12 @@ import lombok.Data;
 
 @Data
 public class ServicioDTO {
-
-	
 	private Integer idServicio;
-	
-	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	@ManyToOne(fetch = FetchType.LAZY)
-	@NotNull(message="{vehiculo.null}")
-	private Vehiculo vehiculo;
+
 	@NotNull(message="{descripcionS.null}")
 	private String descripcion;
 	
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd - HH:mm")
-	@NotNull(message="{fechaS.null}")
 	@PastOrPresent(message="{fechaS.val}")
 	private Date fecha;
 	
@@ -42,4 +35,7 @@ public class ServicioDTO {
 	@Min(value = 0, message = "{estado.min}")
     @Max(value = 1, message = "{estado.max}")
 	private Integer estado;
+	
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	private VehiculoDTO vehiculo;
 }

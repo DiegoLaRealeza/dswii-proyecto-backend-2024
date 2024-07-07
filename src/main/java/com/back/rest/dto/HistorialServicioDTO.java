@@ -13,7 +13,7 @@ public class HistorialServicioDTO {
 	private Integer idHistorialServicio;
 	
 	@NotNull(message="{servicio.null}")
-	private Servicio servicio;
+	private ServicioDTO servicio;
 	
 	@NotNull(message="{fechaH.null}")
 	private Date fecha;

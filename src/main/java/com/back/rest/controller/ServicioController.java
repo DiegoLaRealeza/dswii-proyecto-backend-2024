@@ -19,7 +19,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.back.rest.dto.ServicioDTO;
+import com.back.rest.dto.VehiculoDTO;
 import com.back.rest.entity.Servicio;
+import com.back.rest.entity.Vehiculo;
 import com.back.rest.servicesImpl.ServicioServices;
 import com.back.rest.utils.MensajeResponse;
 import com.back.rest.utils.ModeloNotFoundException;

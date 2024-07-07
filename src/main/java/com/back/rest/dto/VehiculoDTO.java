@@ -24,8 +24,7 @@ public class VehiculoDTO {
 	private Integer anio; 
 	@NotNull(message ="{color.null}")
 	private String color;
+	
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	@ManyToOne(fetch = FetchType.LAZY)
-	@NotNull(message="{cliente.null}")
-    private Cliente cliente ;
+    private ClienteDTO cliente ;
 }

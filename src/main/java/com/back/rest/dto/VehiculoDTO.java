@@ -1,7 +1,10 @@
 package com.back.rest.dto;
 
 import com.back.rest.entity.Cliente;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import jakarta.persistence.FetchType;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
@@ -21,6 +24,8 @@ public class VehiculoDTO {
 	private Integer anio; 
 	@NotNull(message ="{color.null}")
 	private String color;
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	@ManyToOne(fetch = FetchType.LAZY)
 	@NotNull(message="{cliente.null}")
     private Cliente cliente ;
 }

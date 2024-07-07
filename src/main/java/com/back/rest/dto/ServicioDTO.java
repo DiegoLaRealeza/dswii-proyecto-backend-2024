@@ -3,7 +3,11 @@ package com.back.rest.dto;
 import java.util.Date;
 
 import com.back.rest.entity.Vehiculo;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import jakarta.persistence.FetchType;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -18,11 +22,14 @@ public class ServicioDTO {
 	
 	private Integer idServicio;
 	
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	@ManyToOne(fetch = FetchType.LAZY)
 	@NotNull(message="{vehiculo.null}")
 	private Vehiculo vehiculo;
 	@NotNull(message="{descripcionS.null}")
 	private String descripcion;
 	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd - HH:mm")
 	@NotNull(message="{fechaS.null}")
 	@PastOrPresent(message="{fechaS.val}")
 	private Date fecha;

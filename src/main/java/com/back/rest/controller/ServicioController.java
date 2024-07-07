@@ -1,5 +1,6 @@
 package com.back.rest.controller;
 
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -71,6 +72,8 @@ public class ServicioController {
 	public  ResponseEntity<?>  grabar(@Valid @RequestBody ServicioDTO bean){
 		try {
 			Servicio med=mapper.map(bean, Servicio.class);
+			med.setEstado(1);
+			med.setFecha(new Date());
 			Servicio m=servicioSer.registrar(med);
 			ServicioDTO dto=mapper.map(m, ServicioDTO.class);
 			

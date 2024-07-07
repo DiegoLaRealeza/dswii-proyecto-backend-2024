@@ -23,7 +23,7 @@ public class Vehiculo {
 	private String placa ;
 	private String marca; 
 	private String modelo ;
-	@Column(name = "año")
+	@Column(name = "anio")
 	private Integer anio; 
 	private String color;
     
